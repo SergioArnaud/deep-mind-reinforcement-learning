@@ -2,22 +2,22 @@
 
 ## What is artificial intelligence
 
-> To be able to ***\*learn\**** to make ***\*decisions\**** to achieve ***\*goals\****
+> To be able to **learn** to make **decisions** to achieve **goals**
 
 ## What is reinforcement learning?
 
 - Learn by interacting with our enviroment
-- Is ***\*active\****
-- Interactions are often ***\*sequential\****
-- **goal-directed\**
-- Learn ***\*without examples\**** 
-- Optimise some ***\*reward signa\****
+- Is **active**
+- Interactions are often **sequential**
+- **goal-directed**
+- Learn **without examples**
+- Optimise some **reward signal**
 
 ![image-20210917080522665](img/image-20210917080522665.png) 
 
 > Go inside the agent to figure out how we can build learning algorithms that can help that agent learn to interact better, that is, the agent is going to try to optimize some reward signal and this spicifies a goal, the goal is too optimise sum of rewards into the future.
 
-   Reward given by the environment or internal to the agent? Both, it's easier to think about it in one way or another depending on the context.
+Reward given by the environment or internal to the agent? Both, it's easier to think about it in one way or another depending on the context.
 
 ###### Reward hypothesis
 
@@ -29,13 +29,13 @@
 
 ###### So... what is reinforcement learning?
 
-> ***\*Reinforcement learning is the science and framework of learning to make decisions from interaction\****
+> **Reinforcement learning is the science and framework of learning to make decisions from interaction**
 
 ###### Factors:
 
 - Time 
 - Long-term consequences of action
-- Actively gathjering experience
+- Actively gathering experience
 - Predicting the future
 - Dealing with uncertainty
 
@@ -46,7 +46,7 @@
  At each step $t$:
 
 - The agent receives observation $O_t$ and reward $R_t$ and executes action $A_t$.
-- The agent receives observation $A_t$ and emits observation $O_{t+1}$ and reward $R_{t+1}$
+- The environment receives observation $A_t$ and emits observation $O_{t+1}$ and reward $R_{t+1}$
 
 Where $R_t \in \mathbb{R}$
 
@@ -78,13 +78,13 @@ It's usefull to rethink return and values recursively:
 $$
 \begin{align}
 G_t &= R_{t+1} + G_{t+1} \\
-v(s) &= \mathbb{E}[R_{t+1} + v(S_{t+1}| S_t = s]
+v(s) &= \mathbb{E}[R_{t+1} + v(S_{t+1})| S_t = s]
 \end{align}
 $$
 
 ###### Note
 
-> The ggoal is to select actions to maximise value, actions may have long-term consequence so the reward may be delayed and it may be better to sacrifice inmediate reward to gain more long-term reward
+> The goal is to select actions to maximise value, actions may have long-term consequence so the reward may be delayed and it may be better to sacrifice inmediate reward to gain more long-term reward
 
 
 
@@ -180,7 +180,7 @@ Where $\gamma \in [0,1]$ is the _discount factor_.
 It's usefull to rethink the values recursively:
 $$
 \begin{align}
-v(s) &= \mathbb{E}[R_{t+1} + \gamma v_{\pi}(S_{t+1}| S_t = s, A_t \sim \pi(s)]
+v(s) &= \mathbb{E}[R_{t+1} + \gamma v_{\pi}(S_{t+1})| S_t = s, A_t \sim \pi(s)]
 \end{align}
 $$
 where $A_t \sim \pi(s)$ means $A$ is sampled from the policy
@@ -203,7 +203,7 @@ Where $v^*(s)$ Is the optimal value
 
 - This does not depend on a policy, only in the state. 
 - This equality is heavily exploited to build algorithms and aproximate value functions.
-- An accurate value function implies that we can behave optimally but also with suitable approximations we can begave very well.
+- An accurate value function implies that we can behave optimally but also with suitable approximations we can behave very well.
 
 #### Model
 
