@@ -150,10 +150,52 @@ H_{t+1}(A_t) &= H_t(a) + \alpha R_t\pi_t(A_t) && if \ a \neq A_t
 \end{align}
 $$
 
+## 
+
+#### Theorem (Lai & Robins)
+
+Asymptotic total regret is at least logarithmic in number of steps:
+$$
+\lim_{t \to \inf} L_t \geq \log t \sum_{a | \Delta_a > 0} \frac{\Delta_a}{KL(R_a || R_{a^*})}
+$$
+
+
+###### Note
+
+The regret grows at least logarithmically
+
+#### Idea
+
+> Optimism in the face of uncertainty
+
+#### Algorithm (Upper Confidence Bounds)
+
+> The idea is to pick an action if the estimate of the action value is high or our uncertainty of the action value is high. 
+
+###### Policy
+
+The Upper Confidence Bounds policy is given by:
+$$
+\pi(a) = Q_t(a) + U_t(a)
+$$
+Where
+
+- $Q_t(a)$ is an estimate of the action value 
+  - Large $Q_t(s) \implies$ good action
+- $U_t(a)$ is an estimate of an upper confidence for the action value
+  - large $U_t(s) \implies$ High uncertainty
+
+###### Theorem (Hoeffding's Inequality)
+
+Let $X_1, ..., X_n$ be i.i.d. random variables in $[0,1]$ With $\mu = \mathbb{E}[X]$ Then:
+$$
+\mathbb{P}(\bar{X_n} + u \leq \mu) \leq e^{-2nu^2}
+$$
+
+###### Computing $U_t(\cdot)$
 
 
 
+ 
 
-
-
-
+## 
